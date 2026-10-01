@@ -48,5 +48,15 @@ int main()
 	}
 	inFile.close();
 
+	// _DEBUG is defined automatically by Visual Studio in the Debug configuration only,
+	// so this printing code is not even compiled into a Release build.
+#ifdef _DEBUG
+	cout << "DEBUG: loaded " << students.size() << " students" << endl;
+	for (const STUDENT_DATA& s : students)
+	{
+		cout << s.firstName << " " << s.lastName << endl;
+	}
+#endif
+
 	return 0;
 }
